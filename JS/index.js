@@ -1,4 +1,5 @@
 const synth = new Tone.PolySynth().toDestination();
+synth.connect(Tone.Master);
 const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
 var html = '';
 for (let octave = 0; octave < 2; octave++) {
@@ -9,10 +10,10 @@ for (let octave = 0; octave < 2; octave++) {
         if (note == 'E' || note == 'B')
             hasSharp = false;
 
-        html += `<div class='whitenote' onmousedown='noteDown(this)' onmouseup='noteUp(this, false)' onmouseleave='noteUp(this, false)' data-note='${note + (octave+4)}'>`
+        html += `<div class='whitenote' onmousedown='noteDown(this)' onmouseup='noteUp(this, false)' onmouseleave='noteUp(this, false)' data-note='${note + (octave + 4)}'>`
 
         if (hasSharp) {
-            html += `<div class='blacknote' onmousedown='noteDown(this, true)' onmouseup='noteUp(this, true)' onmouseleave='noteUp(this, true)' data-note='${note + '#' + (octave+4)}'></div>`
+            html += `<div class='blacknote' onmousedown='noteDown(this, true)' onmouseup='noteUp(this, true)' onmouseleave='noteUp(this, true)' data-note='${note + '#' + (octave + 4)}'></div>`
         }
 
         html += `</div>`
@@ -32,5 +33,6 @@ const noteDown = (elem, isSharp) => {
     // alert(note);
     elem.style.background = isSharp ? 'black' : '#ccc';
     synth.triggerAttackRelease(note, '16n');
+    
     event.stopPropagation();
 }
