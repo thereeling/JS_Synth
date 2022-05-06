@@ -2,7 +2,7 @@
 
 A simple synth using vanilla JS and the Tone.js framework.  Just click the keys and play!  
 
-## [Check it out!]()
+## [Check it out!](https://thereeling.github.io/JS_Synth/)
 
 ![Screenshot](./assets/Screenshot%202022-05-05%20at%2022-49-36%20Simple%20Synth.png)  
 
