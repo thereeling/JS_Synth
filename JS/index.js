@@ -1,5 +1,4 @@
 const synth = new Tone.PolySynth().toDestination();
-synth.connect(Tone.Master);
 const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
 var html = '';
 for (let octave = 0; octave < 2; octave++) {
@@ -22,6 +21,7 @@ for (let octave = 0; octave < 2; octave++) {
 }
 
 
+
 document.getElementById('container').innerHTML = html;
 
 const noteUp = (elem, isSharp) => {
@@ -36,3 +36,4 @@ const noteDown = (elem, isSharp) => {
     
     event.stopPropagation();
 }
+
